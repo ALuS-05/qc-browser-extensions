@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <h2>任务时长排序助手</h2>
+
+    <div class="info-card">
+      <div class="info-row">
+        <span class="info-label">当前状态</span>
+        <span class="info-value" id="statusText">运行中</span>
+      </div>
+    </div>
+
+    <div class="tip-card">
+      <div class="tip-title">使用说明</div>
+      <ol class="tip-list">
+        <li>打开质检平台的「质检池」页面</li>
+        <li>页面右上角会出现「时长排序」浮动条</li>
+        <li>点击「升序 ↑」按时长从短到长排列</li>
+        <li>点击「降序 ↓」按时长从长到短排列</li>
+        <li>点击「默认」恢复原始顺序（刷新页面）</li>
+        <li>排序仅对当前页显示的任务生效</li>
+      </ol>
+    </div>
+
+    <div class="note-card">
+      <div class="note-title">注意事项</div>
+      <ul class="note-list">
+        <li>切换分页后需要重新点击排序按钮</li>
+        <li>切换筛选条件后排序会失效，需重新排序</li>
+        <li>排序不影响平台数据，仅改变显示顺序</li>
+      </ul>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

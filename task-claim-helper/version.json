@@ -1,0 +1,5 @@
+{
+  "version": "1.1.0",
+  "download_url": "https://你的服务器地址/task-claim-helper.zip",
+  "changelog": "1. 修复409被误判为成功的问题\n2. 增加被抢走统计\n3. 增加一键更新功能"
+}

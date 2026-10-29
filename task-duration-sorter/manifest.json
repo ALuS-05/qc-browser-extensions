@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "任务时长排序助手",
+  "version": "1.2.2",
+  "description": "质检平台任务按时长/实际领取时间升序降序排列，自动记录任务领取时间，支持手动批量记录",
+  "permissions": ["storage"],
+  "host_permissions": [
+    "https://noitom.project.ostimes.net/*",
+    "http://localhost:*/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://noitom.project.ostimes.net/*", "http://localhost:*/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "任务时长排序助手"
+  }
+}

@@ -1,0 +1,262 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #f8f9fa;
+  color: #333;
+}
+
+.container {
+  width: 300px;
+  padding: 16px;
+}
+
+h2 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 14px;
+  color: #202124;
+}
+
+/* 状态卡片 */
+.status-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 14px;
+  margin-bottom: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.status-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.status-label {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.status-hint {
+  font-size: 12px;
+  color: #2e7d32;
+}
+
+/* 开关 */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 22px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: #ccc;
+  border-radius: 22px;
+  transition: 0.3s;
+}
+
+.slider:before {
+  content: "";
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  left: 3px;
+  bottom: 3px;
+  background: #fff;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+input:checked + .slider {
+  background: #1a73e8;
+}
+
+input:checked + .slider:before {
+  transform: translateX(18px);
+}
+
+/* 统计卡片 */
+.stats-card {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.stat-item {
+  flex: 1;
+  background: #fff;
+  border-radius: 10px;
+  padding: 12px;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.stat-value {
+  font-size: 24px;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.stat-value.success { color: #2e7d32; }
+.stat-value.conflicted { color: #e65100; }
+.stat-value.error { color: #c62828; }
+
+/* 使用说明中的彩色文字 */
+.text-success { color: #2e7d32; font-weight: 600; }
+.text-conflicted { color: #e65100; font-weight: 600; }
+.text-error { color: #c62828; font-weight: 600; }
+
+.stat-item .stat-label {
+  font-size: 11px;
+  color: #888;
+}
+
+/* 提示卡片 */
+.tip-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 14px;
+  margin-bottom: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.tip-title {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #202124;
+}
+
+.tip-list {
+  padding-left: 18px;
+  font-size: 12px;
+  color: #555;
+  line-height: 1.8;
+}
+
+/* 重置按钮 */
+.reset-btn {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+  color: #666;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.reset-btn:hover {
+  background: #f5f5f5;
+}
+
+/* 更新卡片 */
+.update-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 14px;
+  margin-bottom: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.update-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #202124;
+}
+
+.version-text {
+  font-size: 12px;
+  color: #1a73e8;
+  font-weight: 500;
+}
+
+.update-row {
+  margin-bottom: 8px;
+}
+
+.update-input {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 11px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.update-input:focus {
+  border-color: #1a73e8;
+}
+
+.update-btn {
+  flex: 1;
+  padding: 7px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #fff;
+  color: #555;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.15s;
+  margin-right: 6px;
+}
+
+.update-btn:last-child {
+  margin-right: 0;
+}
+
+.update-btn:hover {
+  background: #f5f5f5;
+}
+
+.update-btn.primary {
+  background: #1a73e8;
+  color: #fff;
+  border-color: #1a73e8;
+}
+
+.update-btn.primary:hover {
+  background: #1557b0;
+}
+
+.update-status {
+  font-size: 11px;
+  color: #888;
+  margin-top: 6px;
+  line-height: 1.5;
+}
+
+.update-status.success {
+  color: #2e7d32;
+}
+
+.update-status.error {
+  color: #c62828;
+}
+
+.update-status.info {
+  color: #1a73e8;
+}

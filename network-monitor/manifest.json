@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "网络请求监控助手",
+  "version": "1.0.2",
+  "description": "可视化显示网页请求的加载进度和各阶段耗时，帮助诊断网页卡顿原因",
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_start",
+      "all_frames": false
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["interceptor.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

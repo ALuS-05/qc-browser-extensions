@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <h2>视频时长记录器</h2>
+
+    <div class="stats">
+      <div class="stat-item">
+        <span class="stat-label">已记录</span>
+        <span class="stat-value" id="count">0</span>
+        <span class="stat-unit">条</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">总时长</span>
+        <span class="stat-value" id="total">00:00:00</span>
+      </div>
+    </div>
+
+    <div class="review-stats">
+      <div class="review-stat pass">
+        <span class="review-icon">✓</span>
+        <span class="review-num" id="passCount">0</span>
+        <span class="review-label">通过</span>
+        <span class="review-total" id="passTotal">00:00:00</span>
+      </div>
+      <div class="review-stat fail">
+        <span class="review-icon">✕</span>
+        <span class="review-num" id="failCount">0</span>
+        <span class="review-label">不通过</span>
+        <span class="review-total" id="failTotal">00:00:00</span>
+      </div>
+      <div class="review-stat pending">
+        <span class="review-icon">○</span>
+        <span class="review-num" id="pendingCount">0</span>
+        <span class="review-label">未审核</span>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button id="exportBtn" class="primary">导出为 TXT</button>
+      <button id="clearBtn" class="danger">清空记录</button>
+    </div>
+
+    <div class="more-section">
+      <button id="moreBtn" class="btn-more">⚙️ 更多</button>
+      <div class="more-content" id="moreContent" style="display:none">
+        <div class="actions actions-secondary">
+          <button id="exportDataBtn" class="btn-secondary">导出数据(JSON)</button>
+          <button id="importDataBtn" class="btn-secondary">导入数据(JSON)</button>
+          <input type="file" id="importFileInput" accept=".json" style="display:none">
+        </div>
+      </div>
+    </div>
+
+    <div class="record-list" id="recordList">
+      <p class="empty">暂无记录，打开含视频的页面后自动记录</p>
+    </div>
+  </div>
+
+  <!-- 编辑模态框 -->
+  <div class="modal-overlay" id="editModal" style="display:none">
+    <div class="modal">
+      <div class="modal-title">编辑记录</div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>视频名称</label>
+          <input type="text" id="editTitle" placeholder="视频标题">
+        </div>
+        <div class="form-group">
+          <label>记录编号</label>
+          <input type="text" id="editRecordId" placeholder="如 R20260912runxun0011198">
+        </div>
+        <div class="form-group">
+          <label>视频时长（秒）</label>
+          <input type="number" id="editDuration" min="0" step="1" placeholder="输入秒数，如 249">
+          <span class="form-hint" id="editDurationHint">00:00:00</span>
+        </div>
+        <div class="form-group">
+          <label>记录日期</label>
+          <input type="text" id="editDate" placeholder="如 2026/9/10 14:10:51">
+        </div>
+        <div class="form-group">
+          <label>页面 URL</label>
+          <input type="text" id="editUrl" placeholder="页面链接">
+        </div>
+        <div class="form-group">
+          <label>审核状态</label>
+          <select id="editReviewStatus">
+            <option value="pending">未审核</option>
+            <option value="pass">通过</option>
+            <option value="fail">不通过</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button id="editCancel" class="btn-secondary">取消</button>
+        <button id="editSave" class="btn-primary">保存</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="shared.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

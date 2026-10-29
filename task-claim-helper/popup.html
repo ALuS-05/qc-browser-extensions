@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <h2>任务批量领取助手</h2>
+
+    <div class="status-card">
+      <div class="status-row">
+        <span class="status-label">功能状态</span>
+        <label class="switch">
+          <input type="checkbox" id="enableToggle">
+          <span class="slider"></span>
+        </label>
+      </div>
+      <div class="status-hint" id="statusText">已开启 - 点击领取不跳转</div>
+    </div>
+
+    <div class="stats-card">
+      <div class="stat-item">
+        <span class="stat-value success" id="successCount">0</span>
+        <span class="stat-label">领取成功</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value conflicted" id="conflictCount">0</span>
+        <span class="stat-label">被抢走</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value error" id="failCount">0</span>
+        <span class="stat-label">领取失败</span>
+      </div>
+    </div>
+
+    <div class="tip-card">
+      <div class="tip-title">使用说明</div>
+      <ol class="tip-list">
+        <li>打开质检平台的「待认领任务」页面</li>
+        <li>点击任务的「领取」按钮，页面不会跳转</li>
+        <li><span class="text-success">绿色「已领取」</span> = 认领成功</li>
+        <li><span class="text-conflicted">橙色「已被领取」</span> = 被别人抢先领走</li>
+        <li><span class="text-error">红色「失败」</span> = 网络错误，2秒后可重试</li>
+        <li>可连续点击多条任务的领取按钮</li>
+        <li>领取完成后手动切换到「已认领任务」查看</li>
+      </ol>
+    </div>
+
+    <div class="update-card">
+      <div class="update-title">
+        <span>插件更新</span>
+        <span class="version-text" id="currentVersion">v1.1.0</span>
+      </div>
+      <div class="update-row">
+        <input type="text" id="updateUrl" class="update-input" placeholder="更新源URL（version.json地址）">
+      </div>
+      <div class="update-row">
+        <button id="checkUpdate" class="update-btn">检查更新</button>
+        <button id="downloadUpdate" class="update-btn primary" style="display:none">立即更新</button>
+      </div>
+      <div class="update-status" id="updateStatus"></div>
+    </div>
+
+    <button id="resetStats" class="reset-btn">重置统计</button>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

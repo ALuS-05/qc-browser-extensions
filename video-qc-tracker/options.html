@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>视频质检助手 - 设置</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 0 20px;
+      color: #333;
+    }
+    h1 { font-size: 22px; margin-bottom: 24px; }
+    h2 { font-size: 16px; margin: 24px 0 12px; color: #555; }
+    .section {
+      background: #f8f9fa;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+    .reason-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .reason-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      background: #fff;
+      border: 1px solid #dadce0;
+      border-radius: 16px;
+      font-size: 13px;
+    }
+    .reason-item .remove {
+      cursor: pointer;
+      color: #999;
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 1;
+    }
+    .reason-item .remove:hover { color: #ea4335; }
+    .add-row {
+      display: flex;
+      gap: 8px;
+    }
+    .add-row input {
+      flex: 1;
+      padding: 8px 12px;
+      border: 1px solid #dadce0;
+      border-radius: 7px;
+      font-size: 13px;
+    }
+    .add-row button {
+      padding: 8px 16px;
+      background: #1a73e8;
+      color: #fff;
+      border: none;
+      border-radius: 7px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+    .add-row button:hover { background: #1557b0; }
+    .save-bar {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .save-bar button {
+      padding: 10px 24px;
+      border-radius: 7px;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .btn-save { background: #1a73e8; color: #fff; }
+    .btn-save:hover { background: #1557b0; }
+    .btn-reset { background: #e8eaed; color: #555; }
+    .tip {
+      font-size: 12px;
+      color: #888;
+      margin-top: 8px;
+      line-height: 1.6;
+    }
+    .saved-msg {
+      color: #188038;
+      font-size: 13px;
+      margin-right: auto;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>视频质检助手 - 设置</h1>
+
+  <div class="section">
+    <h2>不通过原因标签</h2>
+    <p class="tip">点击标签上的 &times; 可删除；在下方输入框添加新标签。标记不通过时可多选。</p>
+    <div class="reason-list" id="reasonList"></div>
+    <div class="add-row">
+      <input type="text" id="newReason" placeholder="输入新的不通过原因，回车添加">
+      <button id="addReasonBtn">添加</button>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>使用说明</h2>
+    <p class="tip">
+      1. 打开质检平台的视频页面，插件自动检测视频并开始计时<br>
+      2. 点击插件图标查看当前质检耗时<br>
+      3. 质检完成后点击「通过」或「不通过」提交结果<br>
+      4. 不通过需选择原因（可多选）并可补充备注<br>
+      5. 支持导出 CSV（可用 Excel 打开）和 TXT 报表<br>
+      6. 同一任务重新打开会重置计时，不会重复创建记录
+    </p>
+  </div>
+
+  <div class="save-bar">
+    <span class="saved-msg" id="savedMsg">已保存</span>
+    <button class="btn-reset" id="resetBtn">恢复默认</button>
+    <button class="btn-save" id="saveBtn">保存设置</button>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>

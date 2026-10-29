@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "任务批量领取助手",
+  "version": "1.2.0",
+  "description": "质检平台待认领任务页面，点击领取不跳转，后台批量领取多条任务",
+  "permissions": ["storage", "downloads", "tabs"],
+  "host_permissions": [
+    "https://baichuan.noitomrobotics.com.cn:8443/*",
+    "http://localhost:*/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://baichuan.noitomrobotics.com.cn:8443/*", "http://localhost:*/*"],
+      "js": ["content.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "任务批量领取助手"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["page-claim.js"],
+      "matches": ["https://baichuan.noitomrobotics.com.cn:8443/*", "http://localhost:*/*"]
+    }
+  ]
+}
