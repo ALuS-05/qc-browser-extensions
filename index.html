@@ -11,157 +11,228 @@
     line-height: 1.6;
     color: #333;
     background: #f8f9fa;
+    -webkit-font-smoothing: antialiased;
   }
-  .container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+  .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
 
-  /* Hero */
+  /* ===== Hero ===== */
   .hero {
     background: linear-gradient(135deg, #1a73e8 0%, #0d47a1 100%);
     color: white;
-    padding: 80px 0 60px;
+    padding: 72px 0 56px;
     text-align: center;
   }
-  .hero h1 { font-size: 2.2em; margin-bottom: 16px; font-weight: 700; }
-  .hero .subtitle { font-size: 1.15em; opacity: 0.9; max-width: 600px; margin: 0 auto 30px; }
-  .hero .badges { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .hero h1 { font-size: 2.2em; margin-bottom: 16px; font-weight: 700; letter-spacing: -0.5px; }
+  .hero .subtitle {
+    font-size: 1.1em;
+    opacity: 0.92;
+    max-width: 640px;
+    margin: 0 auto 28px;
+    line-height: 1.7;
+  }
+  .hero .badges { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
   .hero .badge {
     background: rgba(255,255,255,0.15);
     padding: 6px 16px;
     border-radius: 20px;
-    font-size: 0.9em;
+    font-size: 0.88em;
+    backdrop-filter: blur(4px);
   }
 
-  /* 数据统计 */
+  /* ===== 数据统计 ===== */
   .stats {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 20px;
-    padding: 40px 0;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: -40px;
+    position: relative;
+    z-index: 10;
   }
   .stat-card {
     background: white;
     border-radius: 12px;
-    padding: 24px;
+    padding: 24px 16px;
     text-align: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
   }
-  .stat-card .num { font-size: 2em; font-weight: 700; color: #1a73e8; }
-  .stat-card .label { font-size: 0.9em; color: #666; margin-top: 4px; }
+  .stat-card .num {
+    font-size: 2em;
+    font-weight: 700;
+    color: #1a73e8;
+    line-height: 1.2;
+  }
+  .stat-card .label {
+    font-size: 0.88em;
+    color: #666;
+    margin-top: 6px;
+  }
 
-  /* 区块 */
-  section { padding: 40px 0; }
+  /* ===== 区块通用 ===== */
+  section { padding: 48px 0; }
   section h2 {
-    font-size: 1.6em;
-    margin-bottom: 24px;
+    font-size: 1.5em;
+    font-weight: 700;
+    margin-bottom: 28px;
     padding-bottom: 12px;
     border-bottom: 2px solid #1a73e8;
     display: inline-block;
   }
+  .section-desc {
+    color: #666;
+    font-size: 0.95em;
+    margin-bottom: 24px;
+    max-width: 640px;
+  }
 
-  /* 问题背景 */
+  /* ===== 问题背景 ===== */
+  .problem-list { display: flex; flex-direction: column; gap: 16px; }
   .problem-box {
-    background: #fff3e0;
+    background: white;
     border-left: 4px solid #ff9800;
     padding: 20px 24px;
-    border-radius: 0 8px 8px 0;
-    margin-bottom: 20px;
+    border-radius: 0 10px 10px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
   }
-  .problem-box p { margin-bottom: 8px; }
+  .problem-box .problem-title {
+    font-weight: 600;
+    color: #e65100;
+    margin-bottom: 6px;
+    font-size: 1.02em;
+  }
+  .problem-box p:last-child { color: #555; }
 
-  /* 产品卡片 */
+  /* ===== 产品卡片 ===== */
+  .product-list { display: flex; flex-direction: column; gap: 28px; }
   .product-card {
     background: white;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-    margin-bottom: 32px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
   }
-  .product-card img { width: 100%; display: block; border-bottom: 1px solid #eee; }
-  .product-card .info { padding: 24px; }
-  .product-card h3 { font-size: 1.3em; margin-bottom: 12px; color: #1a73e8; }
-  .product-card .tags { margin: 12px 0; }
+  .product-card img {
+    width: 100%;
+    display: block;
+    border-bottom: 1px solid #eee;
+  }
+  .product-card .info { padding: 24px 28px; }
+  .product-card h3 {
+    font-size: 1.25em;
+    margin-bottom: 10px;
+    color: #1a73e8;
+    font-weight: 600;
+  }
+  .product-card .desc { color: #555; margin-bottom: 14px; }
+  .product-card .tags { display: flex; flex-wrap: wrap; gap: 8px; }
   .product-card .tag {
-    display: inline-block;
     background: #e3f2fd;
     color: #1565c0;
-    padding: 3px 10px;
-    border-radius: 4px;
+    padding: 4px 12px;
+    border-radius: 6px;
     font-size: 0.85em;
-    margin-right: 8px;
-    margin-bottom: 4px;
   }
 
-  /* 用户反馈 */
+  /* ===== 用户反馈网格 ===== */
   .feedback-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
   }
   .feedback-item {
     background: white;
-    border-radius: 8px;
+    border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    display: flex;
+    flex-direction: column;
   }
-  .feedback-item img { width: 100%; display: block; }
+  .feedback-item img {
+    width: 100%;
+    display: block;
+    flex: 1;
+    object-fit: cover;
+  }
   .feedback-item .caption {
     padding: 12px 16px;
-    font-size: 0.9em;
+    font-size: 0.88em;
     color: #666;
     background: #fafafa;
+    border-top: 1px solid #f0f0f0;
   }
 
-  /* 流程 */
+  /* ===== 产品流程 ===== */
   .process {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
     gap: 16px;
-    justify-content: space-between;
   }
   .process-step {
-    flex: 1;
-    min-width: 140px;
     background: white;
-    border-radius: 8px;
-    padding: 20px;
+    border-radius: 10px;
+    padding: 24px 16px;
     text-align: center;
     box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-    position: relative;
   }
   .process-step .step-num {
-    width: 32px; height: 32px;
+    width: 36px; height: 36px;
     background: #1a73e8;
     color: white;
     border-radius: 50%;
-    line-height: 32px;
+    line-height: 36px;
     margin: 0 auto 12px;
     font-weight: 700;
+    font-size: 1em;
   }
-  .process-step h4 { margin-bottom: 8px; font-size: 1em; }
-  .process-step p { font-size: 0.85em; color: #666; }
+  .process-step h4 {
+    margin-bottom: 8px;
+    font-size: 0.98em;
+    font-weight: 600;
+  }
+  .process-step p {
+    font-size: 0.84em;
+    color: #666;
+    line-height: 1.5;
+  }
 
-  /* 关于我 */
+  /* ===== 关于项目 ===== */
   .about-box {
     background: white;
     border-radius: 12px;
     padding: 32px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.06);
   }
-  .about-box p { margin-bottom: 12px; }
+  .about-box p { margin-bottom: 12px; color: #444; }
+  .about-box p:last-child { margin-bottom: 0; }
+  .about-box a {
+    color: #1a73e8;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .about-box a:hover { text-decoration: underline; }
 
-  /* 底部 */
+  /* ===== 底部 ===== */
   footer {
     background: #263238;
-    color: #aaa;
+    color: #90a4ae;
     text-align: center;
-    padding: 30px 0;
-    font-size: 0.9em;
+    padding: 28px 0;
+    font-size: 0.88em;
+    margin-top: 24px;
   }
   footer a { color: #64b5f6; text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
 
-  @media (max-width: 600px) {
+  /* ===== 响应式 ===== */
+  @media (max-width: 768px) {
     .hero h1 { font-size: 1.6em; }
-    .process { flex-direction: column; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .feedback-grid { grid-template-columns: repeat(2, 1fr); }
+    .process { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 480px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .feedback-grid { grid-template-columns: 1fr; }
+    .process { grid-template-columns: 1fr; }
+    section { padding: 32px 0; }
   }
 </style>
 </head>
@@ -205,49 +276,52 @@
   <!-- 问题背景 -->
   <section>
     <h2>解决了什么问题</h2>
-    <div class="problem-box">
-      <p><strong>痛点1：手动记录视频时长</strong></p>
-      <p>质检员每条视频都需要手动记录时长，一天下来容易漏记、记错，统计总时长还要手动加总，浪费大量时间。</p>
-    </div>
-    <div class="problem-box">
-      <p><strong>痛点2：任务领取需要来回切页面</strong></p>
-      <p>在待认领任务池点"认领"后，页面会自动跳转到"已认领"页面，要领下一条就得切回去再点，来回切换效率很低。</p>
-    </div>
-    <div class="problem-box">
-      <p><strong>痛点3：平台迁移后工具失效</strong></p>
-      <p>公司从PDATA平台迁移到AC平台后，页面结构完全变了，原来的工具都不能用了，需要重新适配。</p>
+    <div class="problem-list">
+      <div class="problem-box">
+        <div class="problem-title">痛点1：手动记录视频时长</div>
+        <p>质检员每条视频都需要手动记录时长，一天下来容易漏记、记错，统计总时长还要手动加总，浪费大量时间。</p>
+      </div>
+      <div class="problem-box">
+        <div class="problem-title">痛点2：任务领取需要来回切页面</div>
+        <p>在待认领任务池点"认领"后，页面会自动跳转到"已认领"页面，要领下一条就得切回去再点，来回切换效率很低。</p>
+      </div>
+      <div class="problem-box">
+        <div class="problem-title">痛点3：平台迁移后工具失效</div>
+        <p>公司从PDATA平台迁移到AC平台后，页面结构完全变了，原来的工具都不能用了，需要重新适配。</p>
+      </div>
     </div>
   </section>
 
   <!-- 产品展示 -->
   <section>
     <h2>产品展示</h2>
-
-    <div class="product-card">
-      <img src="assets/product-duration-tracker.jpg" alt="视频时长记录器截图">
-      <div class="info">
-        <h3>视频时长记录器</h3>
-        <p>自动识别质检页面正在播放的视频时长，自动关联质检结果（通过/不通过），悬浮球面板实时展示统计数据，一键导出TXT。</p>
-        <div class="tags">
-          <span class="tag">自动识别视频时长</span>
-          <span class="tag">自动标记质检结果</span>
-          <span class="tag">悬浮球操作</span>
-          <span class="tag">一键导出TXT</span>
-          <span class="tag">双平台适配</span>
+    <div class="product-list">
+      <div class="product-card">
+        <img src="assets/product-duration-tracker.jpg" alt="视频时长记录器截图">
+        <div class="info">
+          <h3>视频时长记录器</h3>
+          <p class="desc">自动识别质检页面正在播放的视频时长，自动关联质检结果（通过/不通过），悬浮球面板实时展示统计数据，一键导出TXT。</p>
+          <div class="tags">
+            <span class="tag">自动识别视频时长</span>
+            <span class="tag">自动标记质检结果</span>
+            <span class="tag">悬浮球操作</span>
+            <span class="tag">一键导出TXT</span>
+            <span class="tag">双平台适配</span>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="product-card">
-      <img src="assets/product-claim-helper.jpg" alt="任务批量领取助手截图">
-      <div class="info">
-        <h3>任务批量领取助手</h3>
-        <p>在待认领任务池页面点击"认领"后不再跳转，按钮直接变成"已领取"状态，支持连续快速领取多条任务，面板实时统计领取成功/失败次数。</p>
-        <div class="tags">
-          <span class="tag">拦截页面跳转</span>
-          <span class="tag">连续批量领取</span>
-          <span class="tag">领取状态可视化</span>
-          <span class="tag">自动重试机制</span>
+      <div class="product-card">
+        <img src="assets/product-claim-helper.jpg" alt="任务批量领取助手截图">
+        <div class="info">
+          <h3>任务批量领取助手</h3>
+          <p class="desc">在待认领任务池页面点击"认领"后不再跳转，按钮直接变成"已领取"状态，支持连续快速领取多条任务，面板实时统计领取成功/失败次数。</p>
+          <div class="tags">
+            <span class="tag">拦截页面跳转</span>
+            <span class="tag">连续批量领取</span>
+            <span class="tag">领取状态可视化</span>
+            <span class="tag">自动重试机制</span>
+          </div>
         </div>
       </div>
     </div>
@@ -256,7 +330,7 @@
   <!-- 用户反馈与推广 -->
   <section>
     <h2>推广过程与用户反馈</h2>
-    <p style="margin-bottom:20px; color:#666;">工具不是做完就完事了——从自己用，到找组长审核，再到小范围试用、全组推广，每一步都有真实的用户反馈和迭代优化。</p>
+    <p class="section-desc">工具不是做完就完事了——从自己用，到找组长审核，再到小范围试用、全组推广，每一步都有真实的用户反馈和迭代优化。</p>
     <div class="feedback-grid">
       <div class="feedback-item">
         <img src="assets/feedback-6-chenxujia.jpg" alt="向组长汇报">
@@ -317,14 +391,14 @@
     </div>
   </section>
 
-  <!-- 关于我 -->
+  <!-- 关于项目 -->
   <section>
     <h2>关于这个项目</h2>
     <div class="about-box">
       <p>这不是一个程序员的项目，而是一个<strong>一线质检员</strong>因为每天手动记录时长、来回切页面领任务太麻烦，自己想办法解决问题的故事。</p>
       <p>从发现问题 → 写PRD → 开发 → 找领导审批 → 推广给同事 → 收集反馈 → 持续迭代，完整走了一遍产品经理的工作流程。</p>
       <p>过程中经历了平台迁移、页面结构变化、同事反馈各种bug，前前后后迭代了14个版本，工具从自己一个人用，变成了整个质检团队都在用的效率助手。</p>
-      <p style="margin-top:16px;">📄 <a href="视频时长记录器PRD.md" target="_blank">查看完整PRD文档</a></p>
+      <p style="margin-top:16px;">📄 <a href="视频时长记录器PRD.md" target="_blank">查看完整PRD文档 →</a></p>
     </div>
   </section>
 
